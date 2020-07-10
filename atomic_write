@@ -1,0 +1,21 @@
+import os
+from tempfile import mkstemp
+
+
+def atomic_writer(target, content):
+    tmp_file, filepath = mkstemp()
+    with open(tmp_file, "w") as f:
+        f.write(content)
+        os.renames(filepath, target)
+    if os.path.exists(target):
+        print("Success")
+    else:
+        print("Failure")
+
+
+def main(target, content):
+    atomic_writer(target, content)
+
+
+if __name__ == '__main__':
+    main()
