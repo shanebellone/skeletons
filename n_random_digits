@@ -1,0 +1,16 @@
+import random
+
+
+# Efficiently generate string of n random digits
+def generate(n):
+    output = str(random.randrange(10 ** (n - 1), 10 ** n))
+    print(output)
+
+
+def main():
+    n = 10
+    generate(n)
+
+
+if __name__ == '__main__':
+    main()
